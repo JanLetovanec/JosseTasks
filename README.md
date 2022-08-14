@@ -8,6 +8,7 @@ or learn how to use git
 ### How to use git
 I am happy to walk you through it, but in nutshell:
 ![img.png](assets/gitStart.png)
+
 and then you should be just able to input url.
 There might be some issues with SSH though,
 and we might need to make you an account on GitHub 
@@ -26,7 +27,8 @@ and what is the difference between **object** and **class** is.
 ## How do I run tests?
 This is way easier if you have **IntelliJ**.
 1. Right-click the `src` folder (or `tests`)
-2. Select `Run all tests...`
+2. Select `Run all tests...
+
 ![img.png](assets/runTests.png)
 3. Initially, you should get loads of errors.
 But if you implement your stuff you should see tick-marks appearing
