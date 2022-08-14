@@ -531,11 +531,47 @@ class Vector3Test {
 
 
     @Test
-    void reflectIn() {
+    void reflectNegXAgainstX() {
+        Vector3 ray = Vector3.fromXYZ(-1,0,0);
+        Vector3 normal = Vector3.fromXYZ(1, 0, 0);
+
+        Vector3 result = ray.reflectIn(normal);
+        Vector3 expected = Vector3.fromXYZ(1,0,0);
+
+        assertAreClose(result, expected);
     }
 
     @Test
-    void randomInsideUnitSphere() {
+    void reflectNegYAgainstX() {
+        Vector3 ray = Vector3.fromXYZ(0,1,0);
+        Vector3 normal = Vector3.fromXYZ(1, 0, 0);
+
+        Vector3 result = ray.reflectIn(normal);
+        Vector3 expected = Vector3.fromXYZ(0,1,0);
+
+        assertAreClose(result, expected);
+    }
+
+    @Test
+    void reflectDiagonalAgainstX() {
+        Vector3 ray = Vector3.fromXYZ(-Math.sqrt(2), Math.sqrt(2),0);
+        Vector3 normal = Vector3.fromXYZ(1, 0, 0);
+
+        Vector3 result = ray.reflectIn(normal);
+        Vector3 expected = Vector3.fromXYZ(Math.sqrt(2), Math.sqrt(2),0);
+
+        assertAreClose(result, expected);
+    }
+
+    @Test
+    void reflectDoesNotMutate() {
+        Vector3 ray = Vector3.fromXYZ(-Math.sqrt(2), Math.sqrt(2),0);
+        Vector3 normal = Vector3.fromXYZ(1, 0, 0);
+
+        ray.reflectIn(normal);
+        Vector3 rayClone = Vector3.fromXYZ(-Math.sqrt(2), Math.sqrt(2),0);
+
+        assertAreClose(ray, rayClone);
     }
 
     private void assertAreClose(double x, double y) {
