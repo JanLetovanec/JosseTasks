@@ -70,6 +70,7 @@ public class Vector3 {
     // Calculate mirror-like reflection
     // I.e. given a normal to surface, calculate 'bounce'
     // Should retain magnitude
+    // You can assume `this` vector is unit, and so is the `normal`
     public Vector3 reflectIn(Vector3 normal) {
         return null;
     }
